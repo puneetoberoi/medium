@@ -1,0 +1,79 @@
+h3 {
+    text-align: center;
+}
+
+.tags {
+    margin: 30px;
+    
+}
+.tags a {
+    display: flex;
+    font-size: 1.2em;
+    margin: 0 auto;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.tags a:hover {
+    text-decoration: underline;
+    color: black;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+.date {
+    margin: 30px;
+    text-align: center;
+}
+
+.content {
+    margin: 50px;
+    display: block;
+}
+.content p {
+    text-align: center;
+    padding: 10px;
+}
+
+.article {
+    display: block;
+    position: relative;
+    text-align: center;
+    
+}
+
+.article a {
+    display: flex;
+    text-decoration: none;
+    justify-content: center;
+}
+
+/* ------------------------------------------------------ */
+/* create artcile page  */
+
+.author input {
+    display: flex;
+    text-align: center;
+    margin: 28px auto;
+    padding: 8px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 5px 1px blue;
+   
+}
+
+textarea {
+    display: flex;
+    text-align: center;
+    margin: 18px auto;
+    padding: 5px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 5px blue, -2px -2px 5px blue  ;
+}
+
+.btn input {
+    display: flex;
+    padding: 20px;
+    margin: 18px auto;
+    border-radius: 15px;
+    box-shadow: 2px 2px 5px blue, -2px -2px 5px blue ;
+    cursor: pointer;
+}
