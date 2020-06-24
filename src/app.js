@@ -10,7 +10,23 @@ app.use(express.urlencoded())
 app.use(morgan('dev'))
 
 app.get('/', (req, res)=>{
-    res.sendFile(path.join(__dirname, '../public', 'index.html'))
+    res.sendFile(path.join(__dirname, '../public', 'home.html'))
+})
+
+app.get('/login', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../public', 'login.html'))
+})
+
+app.post('/login', (req, res)=>{
+    //save to database
+})
+
+app.get('/register', (req, res)=>{
+    res.sendFile(path.join(__dirname, '../public', 'register.html'))
+})
+
+app.post('/register', (req, res)=>{
+    //save to database
 })
 
 app.get('/create-article', (req, res)=>{
