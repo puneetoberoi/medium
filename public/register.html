@@ -46,15 +46,15 @@
 
     <!-- Default form login -->
     <!-- Default form login -->
-    <form class="text-center border border-light p-5" action="/login">
+    <form class="text-center border border-light p-5" method="POST" action="/register">
 
         <p class="h4 mb-4">Sign Up</p>
 
         <!-- Email -->
-        <input type="email" id="defaultLoginFormEmail" class="form-control mb-1" placeholder="E-mail">
+        <input type="email" id="defaultLoginFormEmail" class="form-control mb-1" placeholder="E-mail" name="userEmail">
 
         <!-- Password -->
-        <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
+        <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password" name="password">
 
         <div class="d-flex justify-content-around">
         </div>

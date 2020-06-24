@@ -3,11 +3,32 @@ const port = process.env.PORT || 3000
 const morgan = require('morgan')
 const path = require('path')
 const fs = require('fs')
+var MongoClient = require('mongodb').MongoClient;
+var bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 console.log(path.join(__dirname))
 let app = express();
 app.use(express.static('public')) //to use an external css file we have to use this
-app.use(express.urlencoded())
+// var urlencodedParser = bodyParser.urlencoded({ extended: true })
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan('dev'))
+app.use(bodyParser.json()); //.use is to introduce middlewware
+app.use(cookieParser());
+
+const atlastURL="mongodb+srv://puneet:02040204@nodeapi-etlso.mongodb.net/test?retryWrites=true&w=majority";
+
+const databaseName = 'media';
+var db
+var put
+var methods = [];
+MongoClient.connect('mongodb+srv://puneet:02040204@nodeapi-etlso.mongodb.net/test?retryWrites=true&w=majority',{useUnifiedTopology: true}, (err, database) => {
+  if (err) return console.log(err)
+  db = database.db(databaseName)
+  console.log("connected");
+//   app.listen(process.env.PORT || 3000, () => {
+//     console.log('listening on 3000')
+//   })
+})
 
 app.get('/', (req, res)=>{
     res.sendFile(path.join(__dirname, '../public', 'home.html'))
@@ -27,6 +48,9 @@ app.get('/register', (req, res)=>{
 
 app.post('/register', (req, res)=>{
     //save to database
+    console.log(req.body)
+    db.collection('users').insertOne({"email": req.body.userEmail}, {"password": req.body.password})
+    res.redirect('/')
 })
 
 app.get('/create-article', (req, res)=>{
