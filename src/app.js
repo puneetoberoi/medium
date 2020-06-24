@@ -48,8 +48,8 @@ app.get('/register', (req, res)=>{
 
 app.post('/register', (req, res)=>{
     //save to database
-    console.log(req.body)
-    db.collection('users').insertOne({"email": req.body.userEmail}, {"password": req.body.password})
+    var pass = req.body.password
+    db.collection('users').insertOne({"email": req.body.userEmail, "password": req.body.password})
     res.redirect('/')
 })
 
